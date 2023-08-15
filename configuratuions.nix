@@ -6,8 +6,6 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  hardware.opengl.driSupport32Bit = true;
-  hardware.pulseaudio.support32Bit = true;
 
   imports =
     [ # Include the results of the hardware scan.
@@ -70,6 +68,8 @@
     openFirewall = true;
   }
 
+  # Enable Flakes and the new command-line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -78,7 +78,6 @@
 	dmenu
   neofetch
 	neovim
-	autojump
 	starship
 	brave
 	eww
@@ -88,7 +87,6 @@
 	gparted
 	kitty
 	openssl
-	picom
 	python3Full
 	python.pkgs.pip
 	qemu
@@ -98,15 +96,9 @@
 	unzip
 	xclip
 	xfce.thunar
-  xorg.libX11
-  xorg.libX11.dev
-  xorg.libxcb
-  xorg.libXft
-  xorg.libXinerama
-	xorg.xinit
-  xorg.xinput
   
-  # List services that you want to enable:
+  # Set default editor to neovim
+  environment.variables.EDITOR = "nvim";
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

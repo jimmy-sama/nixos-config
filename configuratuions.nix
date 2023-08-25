@@ -51,7 +51,7 @@
   users.users.jimmy = {
      isNormalUser = true;
      description = "jimmy";
-     extraGroups = ["networkmanager" "wheel"]; # Enable 'sudo' for the user.
+     extraGroups = [ "networkmanager" "wheel" ]; # Enable 'sudo' for the user.
      packages = with pkgs; [
       firefox
      ];
@@ -77,25 +77,49 @@
 	wget
 	dmenu
   neofetch
-	neovim
 	starship
 	brave
 	eww
 	flameshot
 	gcc
-	git
 	gparted
 	kitty
 	openssl
-	python3Full
-	python.pkgs.pip
 	qemu
 	terminus-nerdfont
 	tldr
 	trash-cli
 	unzip
 	xclip
-	xfce.thunar
+  # HTB recommendations
+  netcat
+  ncat
+  nmap
+  wireshark
+  tcpdump
+  hashcat
+  ffuf
+  gobuster
+  hydra
+  zaproxy
+  proxychains
+  sqlmap
+  radare2
+  metasploit-framework
+  python3
+  spiderfoot
+  theharvester
+  remmina
+  xfreerdp
+  rdesktop
+  crackmapexec
+  exiftool
+  curl
+  seclists
+  testssl.sh
+  git
+  neovim
+  tmux
   
   # Set default editor to neovim
   environment.variables.EDITOR = "nvim";

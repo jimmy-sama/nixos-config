@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, helix, ... }:
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -22,61 +22,32 @@
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  console = {
-    packages=[ pkgs.terminus_font ];
-    font="${pkgs.terminus_font}/share/consolefonts/ter-i22b.psf.gz";
-    useXkbConfig = true; # use xkbOptions in tty.
-  };
-
-  environment.pathToLink = [ "/libexec" ];
-  # Enable the X11 windowing system.
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-    };
-    displayManager = {
-      defaultSession = "none+i3";
-    };
-  };
-
-  windowManager.i3 = {
-    enable = true;
-    extraPackages = with pkgs; [
-      dmenu
-      i3status
-      i3lock
-      i3blocks
-    ];
-  };
-  
- services.picom.enable = true;
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jimmy = {
-     isNormalUser = true;
-     description = "jimmy";
-     extraGroups = [ "networkmanager" "wheel" ]; # Enable 'sudo' for the user.
-     packages = with pkgs; [
+  # Add user 'aurelius'
+  users.users.aurelius = {
+    isNormalUser = true;
+    description = "aurelius";
+    extraGroups = [ "networkmanager" "wheel" ];
+    # openssh.authorizedKeys.keys = [
+    #     # Replace with your own public key
+    #     "ssh-ed25519 <some-public-key> ryan@ryan-pc"
+    # ];
+    packages = with pkgs; [
       firefox
-     ];
+      thunderbird
+    ];
+    nix.settings.trusted-users = [ "aurelius" ];
   };
 
-  # Enable the OpenSSH daemon
+  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings = {
       X11Forwarding = true;
-      PermitRootLogin = "no";
-      PasswordAuthentication = true;
-    }
+      PermitRootLogin = "no"; # disable root login
+      PasswordAuthentication = false; # disable password login
+    };
     openFirewall = true;
-  }
+  };
 
   # Enable Flakes and the new command-line tool
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -130,7 +101,10 @@
   git
   neovim
   tmux
-  
+
+  # Install Helix from the `helix` input
+  helix.packages."${pkgs.system}".helix
+  ];
   # Set default editor to neovim
   environment.variables.EDITOR = "nvim";
 
@@ -141,7 +115,7 @@
   networking.firewall.enable = false;
   networking.enableIPv6 = false;
 
-fonts = {
+  fonts = {
     fonts = with pkgs; [
       noto-fonts
       noto-fonts-cjk
@@ -160,7 +134,7 @@ fonts = {
 	      sansSerif = [ "Noto Sans" "Source Han Sans" ];
       };
     };
-};
+  };
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.

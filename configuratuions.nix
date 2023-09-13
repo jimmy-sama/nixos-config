@@ -30,16 +30,26 @@
     useXkbConfig = true; # use xkbOptions in tty.
   };
 
+  environment.pathToLink = [ "/libexec" ];
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+    };
+    displayManager = {
+      defaultSession = "none+i3";
+    };
+  };
 
-  services.xserver.displayManager = {
-	lightdm.enable = true;
-  	autoLogin = {
-		enable = true;
-		user = "jimmy";
-	};
+  windowManager.i3 = {
+    enable = true;
+    extraPackages = with pkgs; [
+      dmenu
+      i3status
+      i3lock
+      i3blocks
+    ];
   };
   
  services.picom.enable = true;
@@ -74,8 +84,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-	wget
-	dmenu
+	zsh
+  wget
   neofetch
 	starship
 	brave

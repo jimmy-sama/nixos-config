@@ -78,7 +78,6 @@
       firefox
       thunderbird
     ];
-    nix.settings.trusted-users = [ "aurelius" ];
   };
 
   # Enable the OpenSSH daemon.
@@ -98,83 +97,72 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-	git
+  git
   zsh
   wget
   neofetch
-	starship
-	brave
-	eww
-	flameshot
-	gcc
-	gparted
-	kitty
-	openssl
-	qemu
-	terminus-nerdfont
-	tldr
-	trash-cli
-	unzip
-	xclip
+  starship
+  brave
+  eww
+  flameshot
+  gcc
+  gparted
+  kitty
+  openssl
+  qemu
+  tldr
+  trash-cli
+  unzip
+  xclip
   # HTB recommendations
   netcat
-  ncat
   nmap
   wireshark
   tcpdump
   hashcat
   ffuf
   gobuster
-  hydra
-  zaproxy
+  thc-hydra
   proxychains
   sqlmap
   radare2
-  metasploit-framework
+  metasploit
   python3
-  spiderfoot
   theharvester
   remmina
-  xfreerdp
+  freerdp
   rdesktop
   crackmapexec
   exiftool
   curl
-  seclists
-  testssl.sh
+  testssl
   neovim
   tmux
-
-  # Install Helix from the `helix` input
-  helix.packages."${pkgs.system}".helix
   ];
   # Set default editor to neovim
   environment.variables.EDITOR = "nvim";
 
+  # Fonts
   fonts = {
+    # use fonts specified by user rather than default ones
+    fontDir.enable = true;
+
     fonts = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
+      # icon fonts
+      material-design-icons
       font-awesome
-      source-han-sans
-      source-han-sans-japanese
-      source-han-serif-japanese
-      (nerdfonts.override { fonts = [ "Meslo" ]; })
+
+      # nerdfonts
+      (nerdfonts.override {
+        fonts = [
+          "FiraCode"
+          "JetBrainsMono"
+          "Iosevka"
+        ];
+      })
     ];
-    fontconfig = {
-      enable = true;
-      defaultFonts = {
-	      monospace = [ "Meslo LG M Regular Nerd Font Complete Mono" ];
-	      serif = [ "Noto Serif" "Source Han Serif" ];
-	      sansSerif = [ "Noto Sans" "Source Han Sans" ];
-      };
-    };
   };
-  # Copy the NixOS configuration file and link it from the resulting system
-  # (/run/current-system/configuration.nix). This is useful in case you
-  # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+
   system.autoUpgrade.enable = false;  
   system.autoUpgrade.allowReboot = false; 
   system.autoUpgrade.channel = "https://channels.nixos.org/nixos-23.05";

@@ -10,7 +10,7 @@
   # paths it should manage.
   home = {
     username = "aurelius";
-    homeDirectory = "/home/${username}";
+    homeDirectory = "/home/aurelius";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage

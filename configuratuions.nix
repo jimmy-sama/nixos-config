@@ -12,24 +12,64 @@
       ./hardware-configuration.nix
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Bootloader
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+  };
 
-  networking.hostName = "nixos-workstation"; # Define your hostname.
-  networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  # Networking
+  networking = {
+    hostName = "nixos-workstation";
+    networkmanager.enable = true;
+    wireless.enable = false;
+    # Open ports in the firewall.
+    # networking.firewall.allowedTCPPorts = [ ... ];
+    # networking.firewall.allowedUDPPorts = [ ... ];
+    # Or disable the firewall altogether.
+    firewall.enable = false;
+    enableIPv6 = false;
+    # Proxy Settings
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "de_DE.UTF-8";
+    LC_IDENTIFICATION = "de_DE.UTF-8";
+    LC_MEASUREMENT = "de_DE.UTF-8";
+    LC_MONETARY = "de_DE.UTF-8";
+    LC_NAME = "de_DE.UTF-8";
+    LC_NUMERIC = "de_DE.UTF-8";
+    LC_PAPER = "de_DE.UTF-8";
+    LC_TELEPHONE = "de_DE.UTF-8";
+    LC_TIME = "de_DE.UTF-8";
+  };
+
+  # Enable the X11 windowing system.
+  services = {
+    xserver.enable = true;
+    xserver.layout = "de";
+    xkbVariant = "";
+  };
+
+  console.keyMap = "de";
+
   # Add user 'aurelius'
   users.users.aurelius = {
     isNormalUser = true;
-    description = "aurelius";
+    description = "Marcus Aurelius";
     extraGroups = [ "networkmanager" "wheel" ];
     # openssh.authorizedKeys.keys = [
     #     # Replace with your own public key
-    #     "ssh-ed25519 <some-public-key> ryan@ryan-pc"
+    #     "ssh-ed25519 <some-public-key> user@pc"
     # ];
     packages = with pkgs; [
       firefox
@@ -55,7 +95,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
    environment.systemPackages = with pkgs; [
-	zsh
+	git
+  zsh
   wget
   neofetch
 	starship
@@ -98,7 +139,6 @@
   curl
   seclists
   testssl.sh
-  git
   neovim
   tmux
 
@@ -107,13 +147,6 @@
   ];
   # Set default editor to neovim
   environment.variables.EDITOR = "nvim";
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  networking.firewall.enable = false;
-  networking.enableIPv6 = false;
 
   fonts = {
     fonts = with pkgs; [

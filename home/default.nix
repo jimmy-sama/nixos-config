@@ -1,18 +1,15 @@
-{ username, ... }: {
+{ config, pkgs, ... }:
+
+{
+
   imports = [
-    ../base/desktop
-
-    ./base
-    ./fcitx5
-    ./desktop
-
     ./i3
   ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
-    username = username;
+    username = "aurelius";
     homeDirectory = "/home/${username}";
 
     # This value determines the Home Manager release that your

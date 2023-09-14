@@ -42,7 +42,6 @@
 
     # Configure keymap in X11
     layout = "de";
-    xkbVariant = "";
   };
 
   # thunar file manager(part of xfce) related options

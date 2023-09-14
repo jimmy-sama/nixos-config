@@ -25,7 +25,7 @@
 
   # Networking
   networking = {
-    hostName = "nixos-workstation";
+    hostName = "nixos";
     networkmanager.enable = true;
     wireless.enable = false;
     # Open ports in the firewall.
@@ -61,7 +61,6 @@
   services = {
     xserver.enable = true;
     xserver.layout = "de";
-    xkbVariant = "";
   };
 
   console.keyMap = "de";

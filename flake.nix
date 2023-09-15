@@ -30,7 +30,7 @@
       ...
   }: {
     nixosConfigurations = {
-      nixos-test = nixpkgs.lib.nixosSystem {
+      nixos-workstation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         #  config: The configuration of the entire system
@@ -52,7 +52,7 @@
         ];
       };
 
-      msi-rtx4090 = nixpkgs.lib.nixosSystem {
+      nixos-homestation = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         modules = [

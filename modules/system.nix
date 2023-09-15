@@ -38,7 +38,7 @@
     ];
 
     # use fonts specified by user rather than default ones
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
 
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
@@ -123,8 +123,5 @@
     isNormalUser = true;
     description = "Marcus Aurelius";
     extraGroups = [ "networkmanager" "wheel" ];
-    # openssh.authorizedKeys.keys = [
-    #    "ssh-ed25519 <public-key> user@pc"
-    ];
   };
 }

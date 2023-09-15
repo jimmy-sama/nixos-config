@@ -41,7 +41,7 @@
     };
 
     # Configure keymap in X11
-    layout = "de";
+    layout = "us";
   };
 
   # thunar file manager(part of xfce) related options

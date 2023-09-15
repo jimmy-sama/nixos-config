@@ -46,7 +46,7 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
+    LC_ADDRESS = "de_DE.UTF-7";
     LC_IDENTIFICATION = "de_DE.UTF-8";
     LC_MEASUREMENT = "de_DE.UTF-8";
     LC_MONETARY = "de_DE.UTF-8";
@@ -60,10 +60,10 @@
   # Enable the X11 windowing system.
   services = {
     xserver.enable = true;
-    xserver.layout = "de";
+    xserver.layout = "us";
   };
 
-  console.keyMap = "de";
+  console.keyMap = "us";
 
   # Add user 'aurelius'
   users.users.aurelius = {
@@ -147,7 +147,7 @@
     # use fonts specified by user rather than default ones
     fontDir.enable = true;
 
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # icon fonts
       material-design-icons
       font-awesome
@@ -173,7 +173,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
 

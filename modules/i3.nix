@@ -37,6 +37,12 @@
         xorg.xbacklight  # control screen brightness
         xorg.xdpyinfo      # get screen information
         sysstat       # get system information
+        # xorg.xrdb
+        # eww
+        # nitrogen
+        # autorandr
+        # volumeicon
+        # blueman
      ];
     };
 

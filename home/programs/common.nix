@@ -9,7 +9,9 @@
     ripgrep
     yq-go    # https://github.com/mikefarah/yq
     htop
-    neovim
+    wireshark
+    nmap
+    netcat
 
     # misc
     libnotify
@@ -20,17 +22,11 @@
     # productivity
     obsidian
 
-    # IDE
-    insomnia
-
-    # cloud native
-    docker-compose
-    kubectl
-
-    nodejs
-    nodePackages.npm
-    nodePackages.pnpm
-    yarn
+    # development
+    neovim
+    python311
+    python311Packages.pip
+    gcc_multi
 
     # db related
     dbeaver
@@ -79,7 +75,6 @@
 
   services = {
     syncthing.enable = true;
-
     # auto mount usb drives
     udiskie.enable = true;
   };

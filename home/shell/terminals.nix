@@ -6,7 +6,7 @@ let
   font = "JetBrainsMono Nerd Font";
 in
 {
-  programs.alacritty = {
+  programs.kitty = {
     enable = true;
     settings = {
       window.opacity = 0.95;

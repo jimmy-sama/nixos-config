@@ -185,8 +185,6 @@ bindsym Print exec scrot ~/%Y-%m-%d-%T-screenshot.png && notify-send "Screenshot
 bindsym $mod+Shift+p exec ~/.config/i3/scripts/power-profiles
 
 
-bindsym $mod+Shift+m exec ~/.config/i3/scripts/restore-idols-monitor.sh
-
 
 ##########################################
 # configuration for workspace behaviour: #
@@ -209,15 +207,14 @@ set $ws0 "10: "
 # use workspaces on different displays:
 # where you have to replace VGA-0/HDMI-0 with the names for your displays
 # you can get from xrandr command
-workspace $ws1 output DP-2
-workspace $ws6 output HDMI-0
+# workspace $ws1 output DP-2
+# workspace $ws6 output HDMI-0
 
 # bind program to workspace and focus to them on startup:
 # assign [class="kitty"] $ws1
 assign [class="(?i)firefox"] $ws2
 assign [class="Thunar"] $ws8
 assign [class="thunderbird"] $ws9
-assign [class="TelegramDesktop"] $ws5
 
 # automatic set focus new window if it opens on another workspace than the current:
 for_window [class=(?i)firefox] focus
@@ -256,10 +253,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # dex execute .desktop files + apps using /etc/xdg/autostart.
 exec --no-startup-id dex --autostart --environment i3
 
-# start a script to setup displays
-# use arandr to setup displays and save the file as monitor
-exec --no-startup-id ~/.screenlayout/monitor.sh
-
 # set wallpaper
 # exec --no-startup-id sleep 2 && nitrogen --restore
 exec --no-startup-id sleep 1 && feh --bg-fill ~/.config/wallpapers/default_wallpaper
@@ -280,8 +273,6 @@ exec --no-startup-id flameshot
 exec_always --no-startup-id autotiling
 
 exec --no-startup-id i3-msg "workspace $ws2; exec firefox"
-
-exec --no-startup-id sleep 1 && ~/.config/i3/scripts/restore-idols-monitor.sh
 
 ##################
 # floating rules #
@@ -360,8 +351,6 @@ bar {
 	font pango: Noto Sans Regular 10
 	status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	position top
-	# you can add different bars for multidisplay setups on each display by using `output`
-	output DP-2
 
 	# enable transparency for i3bar
 	i3bar_command i3bar --transparency

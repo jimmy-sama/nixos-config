@@ -27,6 +27,7 @@
     python311
     python311Packages.pip
     gcc_multi
+    npm
 
     # db related
     dbeaver

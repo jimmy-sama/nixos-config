@@ -5,6 +5,7 @@
 # nix tooling
 {
   home.packages = with pkgs; [
+    kitty
     alejandra
     deadnix
     statix

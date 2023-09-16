@@ -87,7 +87,15 @@
     neofetch
     xfce.thunar  # xfce4's file manager
     nnn          # terminal file manager
+    zsh
   ];
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
   # Enable sound with pipewire.
   sound.enable = true;

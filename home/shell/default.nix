@@ -9,6 +9,11 @@ in {
     ./kitty.nix
   ];
 
+  home.file = {
+    ".zshrc".source = ./zsh/.zshrc;
+    ".zsh_profile".source = ./zsh/.zsh_profile;
+    ".config/tmux".source = ./tmux;
+  }
   # add environment variables
   home.sessionVariables = {
     # clean up ~

@@ -12,6 +12,7 @@
     wireshark
     nmap
     netcat
+    pywal
 
     # misc
     libnotify
@@ -27,7 +28,7 @@
     python311
     python311Packages.pip
     gcc_multi
-    npm
+    nodejs_20
 
     # db related
     dbeaver

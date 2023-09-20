@@ -3,13 +3,12 @@
 
   imports = [
     ./x11-apps.nix
-    ./rofi
-    ./polybar
   ];
 
   home.file = {
     ".config/i3/wallpaper.png".source = ../../wallpaper.png;
     ".config/i3/config".source = ./config;
+    ".config/i3/i3status.conf".source = ./i3status.conf;
     ".config/i3/keybindings".source = ./keybindings;
     ".config/i3/scripts" = {
       source = ./scripts;

@@ -4,11 +4,12 @@
   cache = config.xdg.cacheHome;
 in {
   imports = [
-    ./kitty.nix
+    ./nushell
+    ./common.nix
     ./starship.nix
-    #./zsh
-    #./tmux
+    ./terminals.nix
   ];
+
   # add environment variables
   home.sessionVariables = {
     # clean up ~
@@ -17,13 +18,17 @@ in {
     WINEPREFIX = d + "/wine";
 
     # set default applications
-    EDITOR = "nvim";
+    EDITOR = "vim";
     BROWSER = "firefox";
-    TERMINAL = "kitty";
+    TERMINAL = "alacritty";
 
     # enable scrolling in git diff
     DELTA_PAGER = "less -R";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+  };
+
+  home.shellAliases = {
+    k = "kubectl";
   };
 }

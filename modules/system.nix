@@ -21,7 +21,7 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  
+
 
   fonts = {
     packages = with pkgs; [
@@ -75,7 +75,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     curl
     git
@@ -87,15 +87,7 @@
     neofetch
     xfce.thunar  # xfce4's file manager
     nnn          # terminal file manager
-    zsh
   ];
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestions.enable = true;
-    syntaxHighlighting.enable = true;
-  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -116,7 +108,7 @@
       alsa.support32Bit = true;
       pulse.enable = true;
       # If you want to use JACK applications, uncomment this
-      # jack.enable = true;
+      jack.enable = true;
 
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)

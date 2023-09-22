@@ -23,7 +23,10 @@
       extraPackages = with pkgs; [
         rofi          # application launcher, the same as dmenu
         dunst         # notification daemon
-        i3lock-fancy  # default i3 screen locker
+        i3lock        # default i3 screen locker
+        i3lock-fancy
+        polybarFull
+        pywal
         xautolock     # lock screen after some time
         i3status      # provide information to i3bar
         i3-gaps       # i3 with gaps
@@ -36,13 +39,12 @@
         xorg.xbacklight  # control screen brightness
         xorg.xdpyinfo      # get screen information
         sysstat       # get system information
-        polybarFull
-        # eww
      ];
     };
 
     # Configure keymap in X11
     layout = "us";
+    xkbVariant = "";
   };
 
   # thunar file manager(part of xfce) related options

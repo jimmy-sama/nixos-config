@@ -3,10 +3,10 @@
 {
 
   imports = [
-    ./programs
     ./i3
-    ./shell
+    ./programs
     ./rofi
+    ./shell
   ];
 
   # Home Manager needs a bit of information about you and the

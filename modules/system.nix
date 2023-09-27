@@ -68,6 +68,10 @@
     };
     openFirewall = true;
   };
+  programs.ssh.extraConfig = ''
+  Host github.com
+  	IdentityFile ~/.ssh/jimmys-github
+  '';
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

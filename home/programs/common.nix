@@ -10,12 +10,19 @@
     yq-go    # https://github.com/mikefarah/yq
     htop
     killall
+    lolcat
+    xclip
 
     # misc
     libnotify
     wineWowPackages.wayland
     xdg-utils
     graphviz
+    
+    # testing
+    steam
+    discord
+    vmware-horizon-client
 
     # productivity
     obsidian

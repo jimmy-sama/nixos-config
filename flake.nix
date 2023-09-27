@@ -22,7 +22,7 @@
       ...
   }: {
     nixosConfigurations = {
-      nixos-workstation = nixpkgs.lib.nixosSystem {
+      rtx-2070 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         #  config: The configuration of the entire system
@@ -31,7 +31,7 @@
         #  modulesPath: The location of the module directory of NixOS.
     
         modules = [
-          ./hosts/nixos-workstation
+          ./hosts/rtx-2070
 
           home-manager.nixosModules.home-manager
           {
@@ -44,11 +44,11 @@
         ];
       };
 
-      nixos-homestation = nixpkgs.lib.nixosSystem {
+      thinkpad-e495 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
         modules = [
-          ./hosts/nixos-homestation
+          ./hosts/thinkpad-e495
 
           home-manager.nixosModules.home-manager
           {

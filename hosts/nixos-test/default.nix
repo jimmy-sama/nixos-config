@@ -16,15 +16,19 @@
 
   # Bootloader.
   boot.loader = {
+    # efi = {
+    #   canTouchEfiVariables = true;
+    #   efiSysMountPoint = "/boot/efi"; # ← use the same mount point here.
+    # };
     grub = {
-     efiSupport = true;
-     #efiInstallAsRemovable = true; # in case canTouchEfiVariables doesn't work for your system
-     device = "nodev";
+      enable = true;
+      device = "nodev";
+      efiSupport = false;
+      useOSProber = true;
     };
-    systemd-boot.enable = true;
   };
 
-  networking.hostName = "nixos-homestation"; # Define your hostname.
+  networking.hostName = "nixos-test"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -33,14 +37,6 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
-
-  # for Nvidia GPU
-  services.xserver.videoDrivers = ["nvidia"];
-  hardware.opengl.enable = true;
-  hardware.nvidia = {
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    modesetting.enable = true;
-  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

@@ -20,9 +20,7 @@
     graphviz
     
     # testing
-    networkmanager
-    networkmanager-openvpn
-    openvpn
+    steam
     discord
     vmware-horizon-client
 

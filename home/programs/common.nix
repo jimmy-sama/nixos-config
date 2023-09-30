@@ -20,7 +20,6 @@
     graphviz
     
     # testing
-    steam
     discord
     vmware-horizon-client
 
@@ -28,7 +27,7 @@
     obsidian
 
     # IDE
-    neovim
+    neovim-unwrapped
 
     nodejs
     nodePackages.npm

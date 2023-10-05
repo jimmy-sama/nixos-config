@@ -2,7 +2,7 @@
 
 {
   imports =
-    (import ../../modules/development/default.nix) ++
+    (import ../../folder-modules/development) ++
     [
       ../../modules/system.nix
       ../../modules/i3.nix
@@ -16,6 +16,13 @@
      device = "nodev";
     };
     systemd-boot.enable = true;
+    systemd-boot.configurationLimit = 20;
+  };
+  
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 1w";
   };
 
   networking.hostName = "Vermeer"; 
@@ -31,6 +38,6 @@
     modesetting.enable = true;
   };
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = "23.11";
 }
 

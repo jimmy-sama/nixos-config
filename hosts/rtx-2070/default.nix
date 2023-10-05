@@ -1,8 +1,8 @@
-{ config, pkgs, inputs, lib, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports =
-    (import ../../folder-modules/development) ++
+    (import ../../modules/development) ++
     [
       ../../modules/system.nix
       ../../modules/i3.nix

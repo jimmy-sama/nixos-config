@@ -2,7 +2,7 @@
 
 {
   programs = {
-    neovim = {
+    neovim-unwrapped = {
       enable = true;
       viAlias = true;
     };

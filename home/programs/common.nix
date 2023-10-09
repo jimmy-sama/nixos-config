@@ -28,9 +28,6 @@
     # productivity
     obsidian
 
-    # IDE
-    neovim-unwrapped
-
     nodejs
     nodePackages.npm
     nodePackages.pnpm

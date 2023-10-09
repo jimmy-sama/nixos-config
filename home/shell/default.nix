@@ -17,7 +17,6 @@ in {
     WINEPREFIX = d + "/wine";
 
     # set default applications
-    EDITOR = "vim";
     BROWSER = "firefox";
     TERMINAL = "alacritty";
 
@@ -25,9 +24,5 @@ in {
     DELTA_PAGER = "less -R";
 
     MANPAGER = "sh -c 'col -bx | bat -l man -p'";
-  };
-
-  home.shellAliases = {
-    k = "kubectl";
   };
 }

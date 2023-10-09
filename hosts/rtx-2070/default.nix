@@ -2,7 +2,6 @@
 
 {
   imports =
-    (import ../../modules/development) ++
     [
       ../../modules/system.nix
       ../../modules/i3.nix

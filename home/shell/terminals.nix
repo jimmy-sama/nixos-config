@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
-# terminals
-
 let
   font = "JetBrainsMono Nerd Font";
 in
@@ -23,7 +21,6 @@ in
         italic.family = font;
         size = 11;
       };
-
     };
   };
 }

@@ -4,13 +4,15 @@
   cache = config.xdg.cacheHome;
 in {
   imports = [
-    ./terminals.nix
+    ./kitty.nix
+    ./tmux
+    ./zsh
   ];
 
   # add environment variables
   home.sessionVariables = {
     # set default applications
     BROWSER = "firefox";
-    TERMINAL = "alacritty";
+    TERMINAL = "kitty";
   };
 }

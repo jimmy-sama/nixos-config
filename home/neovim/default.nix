@@ -9,10 +9,10 @@
       withPython3 = true;
       withNodeJs = true;
       withRuby = true;
+      plugin = [
+	pkgs.vimPlugins.packer-nvim
+      ];
     };
   };
-  home.packages = with pkgs; [
-	vimPlugins.packer-nvim
-  ];
   home.file.".config/nvim/init.lua".source = ./init.lua;
 }

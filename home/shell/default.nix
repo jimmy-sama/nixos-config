@@ -14,5 +14,6 @@ in {
     # set default applications
     BROWSER = "firefox";
     TERMINAL = "kitty";
+    SHELL = "zsh";
   };
 }

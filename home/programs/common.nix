@@ -22,8 +22,8 @@
     # testing
     discord
     vmware-horizon-client
-    # openvpn
-    openvpn3
+    openvpn
+    # openvpn3
 
     # productivity
     obsidian

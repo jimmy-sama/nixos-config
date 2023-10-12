@@ -11,5 +11,8 @@
       withRuby = true;
     };
   };
+  home.packages = with pkgs; [
+	vimPlugins.packer-nvim
+  ];
   home.file.".config/nvim/init.lua".source = ./init.lua;
 }

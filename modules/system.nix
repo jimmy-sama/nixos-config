@@ -27,19 +27,15 @@
     packages = with pkgs; [
       # icon fonts
       material-design-icons
-
       # normal fonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
-
       # nerdfonts
       (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
     ];
-
     # use fonts specified by user rather than default ones
     enableDefaultPackages = false;
-
     # user defined fonts
     # the reason there's Noto Color Emoji everywhere is to override DejaVu's
     # B&W emojis that would sometimes show instead of some Color emojis
@@ -50,14 +46,11 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
-
   programs.dconf.enable = true;
-
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -75,7 +68,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment = {

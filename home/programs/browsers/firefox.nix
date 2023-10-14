@@ -1,4 +1,9 @@
 { pkgs, ... }:
+let
+  homepage = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/jimmy-sama/SourceFiles/homepage.css";
+  };
+in 
 {
   home = {
     sessionVariables = {
@@ -11,13 +16,16 @@
       extraPolicies = {
         DisplayBookmarksToolbar = true;
         Preferences = {
-          "browser.toolbars.bookmarks.visibility" = "always";
+          "browser.toolbars.bookmarks.visibility" = "never";
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "media.ffmpeg.vaapi.enabled" = true;
         };
       };
     };
     profiles.default = {
+      settings = {
+          "browser.startup.homepage" = "file://${homepage}"
+      };
       userChrome = ''
               /*================== SIDEBAR ==================*/
         #sidebar-box,

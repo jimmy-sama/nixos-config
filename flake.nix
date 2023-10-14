@@ -25,11 +25,6 @@
       rtx-2070 = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        #  config: The configuration of the entire system
-        #  options: All option declarations refined with all definition and declaration references.
-        #  pkgs: The attribute set extracted from the Nix package collection and enhanced with the nixpkgs.config option.
-        #  modulesPath: The location of the module directory of NixOS.
-    
         modules = [
           ./hosts/rtx-2070
 

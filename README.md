@@ -5,7 +5,7 @@ My NixOS configuration with i3
 **Reference:** https://nixos-and-flakes.thiscute.world/
 
 **TODO:**
-- [ ] zsh as deafult shell
+- [x] zsh as deafult shell
 - [ ] apply tmux.conf 
 - [ ] i3blocks
     - [ ] fix overlapping icons

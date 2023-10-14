@@ -5,6 +5,7 @@
 in {
   imports = [
     ./kitty.nix
+    ./starship.nix
     ./tmux
     ./zsh
   ];

@@ -2,6 +2,7 @@
 let
   homepage = pkgs.fetchurl {
     url = "https://raw.githubusercontent.com/jimmy-sama/SourceFiles/homepage.css";
+    sha256 = "sha256-ece515d06eb688ae894c2e5ce55f9af5d21ad91b083438228b0a20fa268bba79";
   };
 in 
 {
@@ -24,7 +25,7 @@ in
     };
     profiles.default = {
       settings = {
-          "browser.startup.homepage" = "file://${homepage}"
+          "browser.startup.homepage" = "file://${homepage}";
       };
       userChrome = ''
               /*================== SIDEBAR ==================*/

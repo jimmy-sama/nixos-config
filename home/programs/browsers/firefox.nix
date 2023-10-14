@@ -1,23 +1,8 @@
 { pkgs, ... }:
-let
-  homepage = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/Ruixi-rebirth/someSource/main/firefox/homepage.html";
-    sha256 = "sha256-UmT5B/dMl5UCM5O+pSFWxOl5HtDV2OqsM1yHSs/ciQ4=";
-  };
-  bg = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/Ruixi-rebirth/someSource/main/firefox/bg.png";
-    sha256 = "sha256-dpMWCAtYT3ZHLftQQ32BIg800I7SDH6SQ9ET3yiOr90=";
-  };
-  logo = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/Ruixi-rebirth/someSource/main/firefox/logo.png";
-    sha256 = "sha256-e6L3xq4AXv3V3LV7Os9ZE04R7U8vxdRornBP5x4DWm8=";
-  };
-in
 {
   home = {
     sessionVariables = {
       BROWSER = "firefox";
-      MOZ_ENABLE_WAYLAND = "1";
     };
   };
   programs.firefox = {
@@ -26,16 +11,13 @@ in
       extraPolicies = {
         DisplayBookmarksToolbar = true;
         Preferences = {
-          "browser.toolbars.bookmarks.visibility" = "never";
+          "browser.toolbars.bookmarks.visibility" = "always";
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "media.ffmpeg.vaapi.enabled" = true;
         };
       };
     };
     profiles.default = {
-      settings = {
-        "browser.startup.homepage" = "file://${homepage}";
-      };
       userChrome = ''
               /*================== SIDEBAR ==================*/
         #sidebar-box,

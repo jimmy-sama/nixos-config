@@ -78,21 +78,37 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    curl
-    git
-    sysstat
-    lm_sensors  # for `sensors` command
-    # minimal screen capture tool, used by i3 blur lock to take a screenshot
-    # print screen key is also bound to this tool in i3 config
-    scrot
-    neofetch
-    xfce.thunar  # xfce4's file manager
-    nnn # terminal file manager
-    gcc
-  ];
+  environment = {
+    binsh = "${pkgs.dash}/bin/dash";
+    shells = with pkgs; [ zsh ];
+    systemPackages = with pkgs; [
+        vim
+        neovim
+        gcc
+        clang
+        gdb
+        glib
+        eza
+        zoxide
+        p7zip
+        unzip
+        zip
+        ffmpeg
+        xdg-utils
+        killall
+        socat
+        sops
+        wget
+        curl
+        git
+        sysstat
+        lm_sensors  
+        scrot
+        neofetch
+        xfce.thunar  
+        nnn 
+    ];
+  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -122,9 +138,12 @@
 
     udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
   };
+  
+  programs.zsh.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.aurelius = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Marcus Aurelius";
     extraGroups = [ "networkmanager" "wheel" ];

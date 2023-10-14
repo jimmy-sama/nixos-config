@@ -30,6 +30,8 @@ in
           "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
           "media.ffmpeg.vaapi.enabled" = true;
         };
+        nixExtensions = [
+        ];
       };
     };
     profiles.default = {

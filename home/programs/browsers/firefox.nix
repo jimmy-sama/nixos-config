@@ -106,7 +106,6 @@
 
             /* show nightly logo instead of default firefox logo in newtabpage */
             .search-wrapper .logo-and-wordmark .logo {
-                background: url("${logo}") no-repeat center !important;
                 background-size: auto !important;
                 background-size: 82px !important;
                 display: inline-block !important;
@@ -116,7 +115,6 @@
 
             body {
                 background-color: #000000 !important;
-                background: url("${bg}") no-repeat fixed !important;
                 background-size: cover !important;
                 --newtab-background-color: #000000 !important;
                 --newtab-background-color-secondary: #101010 !important;

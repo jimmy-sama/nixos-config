@@ -11,5 +11,5 @@ My NixOS configuration with i3
     - [ ] fix overlapping icons
     - [ ] fix sound control
     - [ ] used disk space insted of remaining
-- [ ] kitty color options for better visibility
+- [x] kitty color options for better visibility
 - [ ] add Browser profiles

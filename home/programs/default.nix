@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./browsers/firefox.nix
     ./browsers.nix
     ./common.nix
     ./git.nix

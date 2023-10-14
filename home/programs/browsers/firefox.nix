@@ -1,10 +1,19 @@
 { pkgs, ... }:
 let
-  homepage = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/jimmy-sama/SourceFile/main/homepage.css";
-    sha256 = "sha256-0ydsickgl80aici3hd083gcimlpmk9gyap1f9j4sx25ndv81brgc";
+  homepage = "/home/aurelius/GitHub/SourceFile/homepage.html";
+  #homepage = pkgs.fetchurl {
+  #  url = "https://raw.githubusercontent.com/jimmy-sama/SourceFile/main/homepage.html";
+  #  sha256 = "sha256-z8JJuh/sFXd7Dsog0205VEuV59euFqIj1sORFkyX/Lk=";
+  #};
+  bg = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/Ruixi-rebirth/someSource/main/firefox/bg.png";
+    sha256 = "sha256-dpMWCAtYT3ZHLftQQ32BIg800I7SDH6SQ9ET3yiOr90=";
   };
-in 
+  logo = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/Ruixi-rebirth/someSource/main/firefox/logo.png";
+    sha256 = "sha256-e6L3xq4AXv3V3LV7Os9ZE04R7U8vxdRornBP5x4DWm8=";
+  };
+in
 {
   home = {
     sessionVariables = {
@@ -25,7 +34,7 @@ in
     };
     profiles.default = {
       settings = {
-          "browser.startup.homepage" = "file://${homepage}";
+        "browser.startup.homepage" = "file://${homepage}";
       };
       userChrome = ''
               /*================== SIDEBAR ==================*/
@@ -115,6 +124,7 @@ in
 
             /* show nightly logo instead of default firefox logo in newtabpage */
             .search-wrapper .logo-and-wordmark .logo {
+                background: url("${logo}") no-repeat center !important;
                 background-size: auto !important;
                 background-size: 82px !important;
                 display: inline-block !important;
@@ -124,6 +134,7 @@ in
 
             body {
                 background-color: #000000 !important;
+                background: url("${bg}") no-repeat fixed !important;
                 background-size: cover !important;
                 --newtab-background-color: #000000 !important;
                 --newtab-background-color-secondary: #101010 !important;

@@ -15,6 +15,9 @@
         defaultSession = "none+i3";
         lightdm.enable = false;
         gdm.enable = true;
+        setupCommands = ''
+        ${pkgs.xorg.xrandr}/bin/xrandr --output DP-0 -s 2560x1440 -r 144
+        '';
     };
 
     windowManager.i3 = {

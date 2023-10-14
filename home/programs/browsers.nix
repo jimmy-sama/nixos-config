@@ -4,8 +4,7 @@
     ...
 }: {
     programs = {
-        brave = {
-            enable = true;
-        };
+        brave.enable = true;
+        steam.enable = true;
     };
 }

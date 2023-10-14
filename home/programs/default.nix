@@ -6,7 +6,7 @@
   imports = [
     ./browsers/firefox.nix
     ./browsers.nix
-    ./steam.nix
+    # ./steam.nix
     ./common.nix
     ./git.nix
     ./media.nix

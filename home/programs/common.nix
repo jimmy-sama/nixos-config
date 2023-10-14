@@ -23,7 +23,6 @@
     discord
     vmware-horizon-client
     openvpn
-    steam
 
     # productivity
     obsidian

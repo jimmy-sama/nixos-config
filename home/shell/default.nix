@@ -3,7 +3,7 @@ in {
   imports = [
     ./kitty.nix
     ./starship.nix
-    ./tmux
+    ./tmux.nix
     ./zsh
   ];
 

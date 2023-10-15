@@ -24,12 +24,9 @@
     baseIndex = 1;
     prefix = "C-a";
     terminal = "tmux-256color";
-    tmuxConfig = ''
+    clock24 = false;
+    extraConfig = ''
         setw -g mouse on
         '';
   };
-#  home.file = {
-#    ".tmux.conf".source = ./.tmux.conf;
-#    ".tmux".source = ./.tmux;
-#  };
 }

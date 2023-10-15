@@ -23,6 +23,7 @@
     discord
     vmware-horizon-client
     openvpn
+    steam
 
     # productivity
     obsidian
@@ -39,11 +40,6 @@
   ];
 
   programs = {
-    tmux = {
-      enable = true;
-      clock24 = true;
-    };
-
     bat = {
       enable = true;
       config = {

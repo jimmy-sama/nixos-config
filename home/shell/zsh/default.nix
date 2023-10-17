@@ -4,9 +4,9 @@
     enable = true;
     oh-my-zsh = {
         enable = true;
-        plugins = [ "git" "zsh-fzf-history-search" ];
+        plugins = [ "git" ];
         theme = "";
+    };
   };
-  };
-  home.file.".zshrc".source = ./.zshrc;
+  #home.file.".zshrc".source = ./.zshrc;
 }

@@ -99,6 +99,7 @@
         neofetch
         xfce.thunar  
         nnn 
+        fzf
     ];
   };
 

@@ -4,7 +4,7 @@ in {
     ./kitty.nix
     ./starship.nix
     ./tmux.nix
-    ./zsh
+    ./zsh.nix
   ];
 
   # add environment variables

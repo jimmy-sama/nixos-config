@@ -20,7 +20,7 @@
     };
     shellAliases = {
       nix-switch = "sudo nixos-rebuild switch --flake .#rtx-2070";
-      ls = "ls -AFlh";
+      ls = "ls -AFlh --color=always";
     };
   };
 }

@@ -6,11 +6,8 @@
       defaultEditor = true;
       viAlias = true;
       vimAlias = true;
-      withPython3 = true;
-      withNodeJs = true;
-      withRuby = true;
       plugins = [
-	pkgs.vimPlugins.packer-nvim
+    	pkgs.vimPlugins.packer-nvim
       ];
     };
   };

@@ -221,8 +221,8 @@ bindsym $mod+Shift+n exec ~/.config/i3/scripts/empty_workspace
 # Multimedia Keys
 
 # volume
-bindsym $mod+F12 exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
-bindsym $mod+F11 exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
+bindsym F12 exec amixer -D pulse sset Master 5%+ && pkill -RTMIN+1 i3blocks
+bindsym F11 exec amixer -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 
 # gradular volume control
 bindsym $mod+XF86AudioRaiseVolume exec amixer -D pulse sset Master 1%+ && pkill -RTMIN+1 i3blocks

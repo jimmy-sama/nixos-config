@@ -4,9 +4,8 @@
   ...
 }: {
   imports = [
-    ./browsers/firefox.nix
+    ./firefox.nix
     ./browsers.nix
-    # ./steam.nix
     ./common.nix
     ./git.nix
     ./media.nix

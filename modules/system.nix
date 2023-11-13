@@ -51,6 +51,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
+  networking.nameservers = [ "1.1.1.2" "192.168.1.217" ]
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;

@@ -101,6 +101,7 @@
         xfce.thunar  
         nnn 
         fzf
+        update-systemd-resolved
     ];
   };
 

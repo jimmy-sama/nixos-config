@@ -23,6 +23,9 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        eww
+        picom
+        glava
         rofi          # application launcher, the same as dmenu
         dunst         # notification daemon
         i3lock        # default i3 screen locker
@@ -31,7 +34,6 @@
         pywal
         xautolock     # lock screen after some time
         i3status      # provide information to i3bar
-        i3-gaps       # i3 with gaps
         picom         # transparency and shadows
         feh           # set wallpaper
         acpi          # battery information

@@ -48,7 +48,7 @@
 
     # Configure keymap in X11
     layout = "us";
-    xkbVariant = "";
+    xkbVariant = "intl";
   };
 
   # thunar file manager(part of xfce) related options

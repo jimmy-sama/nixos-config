@@ -400,7 +400,21 @@ bar {
 		status_command i3blocks -c ~/.config/i3/i3blocks.conf
 	    position top
 		tray_padding 0
+        # When strip_workspace_numbers is set to yes,
+        # any workspace that has a name of the form
+        # “[n][:][NAME]” will display only the name.
         strip_workspace_numbers yes
+
+		    colors {
+		    separator          $purple
+		    background         $darkgrey
+		    statusline         $white
+#                          		border 		        bg		txt		indicator
+		focused_workspace	$mediumgrey	   	$grey		$darkgrey	$purple
+		active_workspace	$lightblue      	$mediumgrey	$darkgrey	$purple
+		inactive_workspace	$darkgrey   		$darkgrey	$grey		$purple
+		urgent_workspace	$urgentred	    	$urgentred	$white		$purple
+	}
 }
 
 #####################################

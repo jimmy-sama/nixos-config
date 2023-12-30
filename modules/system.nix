@@ -75,8 +75,8 @@
     binsh = "${pkgs.dash}/bin/dash";
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
-        vim
         neovim
+        blueman
         gcc
         clang
         gdb

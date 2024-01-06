@@ -51,7 +51,7 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
-  networking.nameservers = [ "1.1.1.2" "192.168.1.217" ];
+  networking.nameservers = [ "1.1.1.3" "1.0.0.3" ];
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
@@ -76,7 +76,9 @@
     shells = with pkgs; [ zsh ];
     systemPackages = with pkgs; [
         neovim
+        ansible
         blueman
+        bluez
         gcc
         clang
         gdb
@@ -112,6 +114,18 @@
     enable = true;
   };
   security.polkit.enable = true;
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      commands = [
+        {
+          command = "/run/current-system/sw/bin/nixos-rebuild";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+      groups = [ "wheel" ];
+    }];
+  };
 
   services = {
     dbus.packages = [ pkgs.gcr ];

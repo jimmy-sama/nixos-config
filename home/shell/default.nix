@@ -2,7 +2,6 @@
 in {
   imports = [
     ./kitty.nix
-    ./starship.nix
     ./tmux.nix
     ./zsh.nix
   ];
@@ -10,6 +9,7 @@ in {
   # add environment variables
   home.sessionVariables = {
     # set default applications
+    EDITOR = "nvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
     SHELL = "zsh";

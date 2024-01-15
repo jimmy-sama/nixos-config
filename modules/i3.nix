@@ -28,7 +28,6 @@
         glava
         rofi          # application launcher, the same as dmenu
         dunst         # notification daemon
-        i3lock        # default i3 screen locker
         i3blocks      # status bar 
         i3lock-fancy
         pywal
